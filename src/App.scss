@@ -1,0 +1,13 @@
+.App {
+    width: 500px;
+    display: block;
+    margin: auto;
+}
+
+#editor {
+    width: 100%;
+    height: 30vh;
+    border-radius: 4px;
+    padding: 6px;
+    resize: vertical;
+}
