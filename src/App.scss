@@ -1,4 +1,5 @@
 .App {
+    z-index: 1;
     width: 600px;
     display: block;
     margin: auto;
@@ -16,10 +17,12 @@
     @extend .base-container;
     height: 30vh;
     resize: vertical;
+    background-color: white;
 }
 
 #preview {
     @extend .base-container;
+    background-color: white;
 }
 
 code {
@@ -47,4 +50,90 @@ pre code {
 blockquote {
     border-left: 2px solid;
     padding-left: 6px;
+}
+
+// n is number of stars required
+@function multiple-box-shadow ($n) {
+  $value: '#{random(2000)}px #{random(2000)}px #222';
+  @for $i from 2 through $n {
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #222';
+  }
+  @return unquote($value);
+}
+
+$shadows-small:  multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big:    multiple-box-shadow(100);
+
+// html {
+//   height: 100%;
+//   background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+//   overflow: hidden;
+// }
+    
+#stars {
+    z-index: -1;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  box-shadow: $shadows-small;
+  animation: animStar 10s linear infinite;
+    
+  &:after {
+    content: " ";
+    position: absolute;
+    //top: 2000px;
+    width: 4px;
+    height: 4px;
+    background: transparent;
+    box-shadow: $shadows-small;
+  }
+}
+    
+#stars2 {
+    z-index: -1;
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  box-shadow: $shadows-medium;
+  animation: animStar 20s linear infinite;
+    
+  &:after {
+    content: " ";
+    position: absolute;
+    //top: 2000px;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+  }
+}
+
+#stars3 {
+    z-index: -1;
+  width: 16px;
+  height: 16px;
+  color: brown;
+  background: transparent;
+  box-shadow: $shadows-big;
+  animation: animStar 30s linear infinite;
+    
+  &:after {
+    content: " ";
+    position: absolute;
+    //top: 2000px;
+    width: 16px;
+    height: 16px;
+    background: transparent;
+    box-shadow: $shadows-big;
+  }
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {	
+    transform: translateY(-2000px);
+  }
 }
