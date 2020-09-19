@@ -22,5 +22,5 @@ If you have many things you'd like to lise,
 - A
 - List
 
-You can make things *bold*, and you can 
+You can make things *italicized*, you can make things **bold**, and you can 
 > block quote things.

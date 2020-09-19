@@ -2,6 +2,7 @@
     z-index: 1;
     width: 600px;
     display: block;
+    display: absolute;
     margin: auto;
 }
 
@@ -56,7 +57,7 @@ blockquote {
 @function multiple-box-shadow ($n) {
   $value: '#{random(2000)}px #{random(2000)}px #222';
   @for $i from 2 through $n {
-    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #222';
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px rgb(#{random(255)}, #{random(255)}, #{random(255)})';
   }
   @return unquote($value);
 }
@@ -65,75 +66,64 @@ $shadows-small:  multiple-box-shadow(700);
 $shadows-medium: multiple-box-shadow(200);
 $shadows-big:    multiple-box-shadow(100);
 
-// html {
-//   height: 100%;
-//   background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-//   overflow: hidden;
-// }
-    
-#stars {
-    z-index: -1;
-  width: 4px;
-  height: 4px;
+html {
+  //height: 100%;
+  //background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  overflow-x: hidden;
+
+}
+
+@keyframes horizontalSlides {
+    from {
+      transform: translateX(2000px);
+    }
+    to {	
+      transform: translateX(-2000px);
+    }
+  }
+
+#slides {
+  width: 10px;
+  height: 10px;
   background: transparent;
   box-shadow: $shadows-small;
-  animation: animStar 10s linear infinite;
-    
-  &:after {
-    content: " ";
-    position: absolute;
-    //top: 2000px;
-    width: 4px;
-    height: 4px;
+  animation: horizontalSlides 20s linear infinite;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+}
+
+#slides-delayed {
+    width: 10px;
+    height: 10px;
     background: transparent;
     box-shadow: $shadows-small;
-  }
-}
-    
-#stars2 {
-    z-index: -1;
-  width: 8px;
-  height: 8px;
-  background: transparent;
-  box-shadow: $shadows-medium;
-  animation: animStar 20s linear infinite;
-    
-  &:after {
-    content: " ";
+    animation: horizontalSlides 20s linear infinite;
+    animation-delay: -10s;
     position: absolute;
-    //top: 2000px;
-    width: 8px;
-    height: 8px;
-    background: transparent;
-    box-shadow: $shadows-medium;
+    top: 0px;
+    z-index: -1;
   }
-}
 
-#stars3 {
-    z-index: -1;
-  width: 16px;
-  height: 16px;
-  color: brown;
-  background: transparent;
-  box-shadow: $shadows-big;
-  animation: animStar 30s linear infinite;
-    
-  &:after {
-    content: " ";
-    position: absolute;
-    //top: 2000px;
-    width: 16px;
-    height: 16px;
+#large-slides {
+    width: 30px;
+    height: 30px;
     background: transparent;
     box-shadow: $shadows-big;
+    animation: horizontalSlides 40s linear infinite;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
   }
-}
-
-@keyframes animStar {
-  from {
-    transform: translateY(0px);
-  }
-  to {	
-    transform: translateY(-2000px);
-  }
-}
+  
+#large-slides-delayed {
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      box-shadow: $shadows-big;
+      animation: horizontalSlides 40s linear infinite;
+      animation-delay: -20s;
+      position: absolute;
+      top: 0px;
+      z-index: -1;
+    }

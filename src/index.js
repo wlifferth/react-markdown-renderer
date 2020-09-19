@@ -24,9 +24,10 @@ ReactDOM.render(
     <Provider store={store}>
       <App />
     </Provider>
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
+    <div id="slides"></div>
+    <div id="slides-delayed"></div>
+    <div id="large-slides"></div>
+    <div id="large-slides-delayed"></div>
   </React.StrictMode>,
 
   document.getElementById("root")
