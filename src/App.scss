@@ -62,15 +62,14 @@ blockquote {
   @return unquote($value);
 }
 
-$shadows-small:  multiple-box-shadow(700);
-$shadows-medium: multiple-box-shadow(200);
-$shadows-big:    multiple-box-shadow(100);
+$shadows-small:  multiple-box-shadow(600);
+$shadows-big:    multiple-box-shadow(200);
+$animation-period: 60s;
+$small-slides-size: 15px;
+$large-slides-size: 40px;
 
 html {
-  //height: 100%;
-  //background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   overflow-x: hidden;
-
 }
 
 @keyframes horizontalSlides {
@@ -83,47 +82,47 @@ html {
   }
 
 #slides {
-  width: 10px;
-  height: 10px;
+  width: $small-slides-size;
+  height: $small-slides-size;
   background: transparent;
   box-shadow: $shadows-small;
-  animation: horizontalSlides 20s linear infinite;
+  animation: horizontalSlides $animation-period linear infinite;
   position: absolute;
   top: 0px;
   z-index: -1;
 }
 
 #slides-delayed {
-    width: 10px;
-    height: 10px;
+    width: $small-slides-size;
+    height: $small-slides-size;
     background: transparent;
     box-shadow: $shadows-small;
-    animation: horizontalSlides 20s linear infinite;
-    animation-delay: -10s;
+    animation: horizontalSlides $animation-period linear infinite;
+    animation-delay: #{-$animation-period / 2};
     position: absolute;
     top: 0px;
     z-index: -1;
   }
 
 #large-slides {
-    width: 30px;
-    height: 30px;
+    width: $large-slides-size;
+    height: $large-slides-size;
     background: transparent;
     box-shadow: $shadows-big;
-    animation: horizontalSlides 40s linear infinite;
+    animation: horizontalSlides #{$animation-period * 1.5} linear infinite;
     position: absolute;
     top: 0px;
-    z-index: -1;
+    z-index: -2;
   }
   
 #large-slides-delayed {
-      width: 30px;
-      height: 30px;
+      width: $large-slides-size;
+      height: $large-slides-size;
       background: transparent;
       box-shadow: $shadows-big;
-      animation: horizontalSlides 40s linear infinite;
-      animation-delay: -20s;
+      animation: horizontalSlides #{$animation-period * 1.5} linear infinite;
+      animation-delay: #{-$animation-period * 0.75};
       position: absolute;
       top: 0px;
-      z-index: -1;
+      z-index: -2;
     }
