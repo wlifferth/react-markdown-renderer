@@ -10,6 +10,7 @@ And you can show small snippets of `code` inline!
 If you have
 ```
 lots of code
+on multiple lines
 ```
 you can put it in a code block.
 

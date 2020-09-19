@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { render } from "react-dom";
 
 const Preview = ({ rendered_markdown }) => {
-  console.log(rendered_markdown);
   return (
     <div
       id="preview"

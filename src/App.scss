@@ -1,13 +1,50 @@
 .App {
-    width: 500px;
+    width: 600px;
     display: block;
     margin: auto;
 }
 
-#editor {
+.base-container {
     width: 100%;
-    height: 30vh;
     border-radius: 4px;
+    border: 1px solid;
     padding: 6px;
+    margin: 10px;
+}
+
+#editor {
+    @extend .base-container;
+    height: 30vh;
     resize: vertical;
+}
+
+#preview {
+    @extend .base-container;
+}
+
+code {
+    border-radius: 2px;
+    background-color: #eee;
+    padding: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+pre {
+    border-radius: 2px;
+    background-color: #eee;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+pre code {
+    all: unset;
+}
+
+blockquote {
+    border-left: 2px solid;
+    padding-left: 6px;
 }

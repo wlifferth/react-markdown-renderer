@@ -7,7 +7,12 @@ const Editor = ({ raw_markdown, onChange }) => {
   return (
     <div id="editor-container">
       <h1>Markdown Renderer</h1>
-      <textarea id="editor" value={raw_markdown} onChange={onChange} />
+      <textarea
+        id="editor"
+        wrao="hard"
+        value={raw_markdown}
+        onChange={onChange}
+      />
     </div>
   );
 };
